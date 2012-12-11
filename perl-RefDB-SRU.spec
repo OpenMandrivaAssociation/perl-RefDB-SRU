@@ -1,18 +1,16 @@
 %define module	RefDB-SRU
-%define name	perl-%{module}
-%define version 0.7
-%define release %mkrel 2
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		perl-%{module}
+Version:	0.7
+Release:	3
 Summary:	%{module} module for perl
 License:	GPLv2+
 Group:		Development/Perl
 URL:		http://refdb.sourceforge.net
 Source:		http://prdownloads.sourceforge.net/refdb/%{module}-%{version}.tar.gz
+
+BuildRequires:	perl-devel
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Perl component for the MARC and Pubmed import filters.
@@ -21,23 +19,32 @@ Perl component for the MARC and Pubmed import filters.
 %setup -q -n %{module}-%{version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-%{__make}
+perl Makefile.PL INSTALLDIRS=vendor
+make
 
 %check
 # tests require a RefDB server
-#%{__make} test
+#make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog
 %{perl_vendorlib}/RefDB
 %{_mandir}/*/*
 
+
+
+%changelog
+* Mon Sep 14 2009 Thierry Vignaud <tvignaud@mandriva.com> 0.7-2mdv2010.0
++ Revision: 440620
+- rebuild
+
+* Sat Mar 14 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.7-1mdv2009.1
++ Revision: 355064
+- import perl-RefDB-SRU
+
+
+* Sat Mar 14 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.7-1mdv2009.1
+- first release
