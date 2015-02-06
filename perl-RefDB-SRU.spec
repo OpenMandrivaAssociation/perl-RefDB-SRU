@@ -2,7 +2,7 @@
 
 Name:		perl-%{module}
 Version:	0.7
-Release:	4
+Release:	5
 Summary:	%{module} module for perl
 License:	GPLv2+
 Group:		Development/Perl
