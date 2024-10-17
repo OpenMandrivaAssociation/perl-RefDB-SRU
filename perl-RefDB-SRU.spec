@@ -6,7 +6,7 @@ Release:	5
 Summary:	%{module} module for perl
 License:	GPLv2+
 Group:		Development/Perl
-URL:		http://refdb.sourceforge.net
+URL:		https://refdb.sourceforge.net
 Source:		http://prdownloads.sourceforge.net/refdb/%{module}-%{version}.tar.gz
 
 BuildRequires:	perl-devel
