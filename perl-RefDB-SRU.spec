@@ -9,6 +9,7 @@ Group:		Development/Perl
 URL:		https://refdb.sourceforge.net
 Source:		http://prdownloads.sourceforge.net/refdb/%{module}-%{version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildArch:	noarch
 
